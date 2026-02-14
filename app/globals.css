@@ -1,0 +1,152 @@
+:root {
+  color-scheme: only light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial Rounded MT Bold', 'Segoe UI', 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ffe7f2, #ffd5e9 50%, #ffc0de 100%);
+  color: #91294f;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+}
+
+.card {
+  width: min(680px, 95vw);
+  min-height: 470px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.83);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 16px 38px rgba(162, 0, 74, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+h1 {
+  margin: 0.4rem 0;
+  font-size: clamp(1.45rem, 5vw, 2.3rem);
+}
+
+.subtitle {
+  margin: 0 auto 1rem;
+  max-width: 34ch;
+  opacity: 0.9;
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+}
+
+.buttonArena {
+  position: relative;
+  min-height: 250px;
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.18rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 260ms ease, background-color 200ms ease, opacity 260ms ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.yes {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-120%, -50%);
+  background: linear-gradient(135deg, #ff77a8, #ff4f88);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(255, 79, 136, 0.38);
+}
+
+.yes:hover {
+  box-shadow: 0 10px 24px rgba(255, 79, 136, 0.45);
+}
+
+.no {
+  position: absolute;
+  background: #fff;
+  color: #c64372;
+  border: 2px solid #f48db3;
+  box-shadow: 0 8px 18px rgba(244, 141, 179, 0.3);
+}
+
+.result {
+  opacity: 0;
+  transform: translateY(14px);
+  margin: 0.6rem auto 0;
+  max-width: 32ch;
+  font-weight: 700;
+  color: #ad2257;
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heartsLayer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -10vh;
+  animation-name: floatUp;
+  animation-timing-function: ease-out;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) scale(1.25) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    min-height: 520px;
+  }
+
+  .buttonArena {
+    min-height: 280px;
+  }
+
+  .yes {
+    transform: translate(-120%, -72%);
+  }
+}
